@@ -29,7 +29,7 @@
         </div>
         <section class="form-section">
           <h2>Let's do this!</h2>
-          <form class="form">
+          <form id="form">
             <div>
               <label for="first-name">First name</label>
               <input type="text" name="first-name" id="first-name" required />
@@ -40,20 +40,28 @@
             </div>
             <div>
               <label for="email">Email</label>
-              <input type="email" name="email" id="email" required />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                pattern=".+@example\.com"
+                required
+              />
+              <span class="error"></span>
             </div>
             <div>
               <label for="phone-number">Phone number</label>
               <input
-                type="number"
+                type="tel"
                 name="phone-number"
                 id="phone-number"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 required
               />
             </div>
             <div>
               <label for="password">Password</label>
-              <input type="password" name="pasword" id="pasword" required />
+              <input type="password" name="password" id="password" required />
             </div>
             <div>
               <label for="confirm-pw">Confirm password</label>
@@ -66,9 +74,13 @@
             </div>
           </form>
         </section>
-        <button class="margin-l">Create Account</button>
+        <button type="submit" class="btn btn--create margin-l" form="form">
+          Create Account
+        </button>
         <p class="margin-l">Already have an account? <a href="#">Log in</a></p>
       </main>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

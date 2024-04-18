@@ -1,8 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap');
 
 @font-face {
-  font-family: "Norse Bold";
+  font-family: 'Norse Bold';
   src: url(./assets/fonts/Norse-Bold.otf);
+}
+
+:root {
+  /* Primary */
+  --clr-primary: #596d48;
+  --clr-primary-light: #66a80f;
+  --clr-primary-dark: #3b4830;
+
+  /* White */
+  --clr-white: #fff;
+  --clr-white-1: #f1f3f5;
+  --clr-white-2: #e5e7eb;
+
+  /* Grey */
+  --clr-light-grey: #555;
+  --clr-dark-grey: #333;
 }
 
 * {
@@ -16,12 +32,12 @@ html {
 }
 
 body {
-  background-color: #f1f3f5;
-  font-family: "Sedan", serif;
+  background-color: var(--clr-white-1);
+  font-family: 'Sedan', serif;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1;
-  color: #333;
+  color: var(--clr-dark-grey);
 }
 
 .container {
@@ -53,16 +69,16 @@ body {
 }
 
 h1 {
-  font-family: "Norse Bold", sans-serif;
+  font-family: 'Norse Bold', sans-serif;
   font-size: 8rem;
-  color: #fff;
+  color: var(--clr-white);
   padding-top: 2.5rem;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.4;
   width: 80%;
   margin-bottom: 2rem;
 }
@@ -72,18 +88,17 @@ h2 {
 }
 
 .form-section {
-  background-color: #fff;
+  background-color: var(--clr-white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 2rem 5rem;
-  margin-bottom: 4rem;
+  margin: 4rem 0;
 }
 
-.form {
+form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   column-gap: 3rem;
-
   row-gap: 2rem;
   margin-top: 2rem;
 }
@@ -99,7 +114,7 @@ label {
   letter-spacing: 1.2px;
   line-height: 1.8;
   text-transform: uppercase;
-  color: #555;
+  color: var(--clr-light-grey);
 }
 
 input {
@@ -107,8 +122,13 @@ input {
   font-size: inherit;
   width: 25rem;
   padding: 0.8rem 1rem;
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--clr-white-2);
   border-radius: 3px;
+}
+
+input:focus {
+  outline: 1px solid var(--clr-primary-light);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 button {
@@ -116,7 +136,7 @@ button {
   font-size: inherit;
   font-weight: 600;
   letter-spacing: 0.8px;
-  background-color: #596d48;
+  background-color: var(--clr-primary);
   color: #fff;
   padding: 1.5rem 5rem;
   border: none;
@@ -127,17 +147,72 @@ button {
 }
 
 button:hover {
-  background-color: #3b4830;
+  background-color: var(--clr-primary-dark);
 }
 
 a:link,
 a:visited {
-  color: #596d48;
+  color: var(--clr-primary);
   text-decoration: none;
   font-weight: 900;
 }
 
 a:hover,
 a:active {
-  color: #3b4830;
+  color: var(--clr-primary-dark);
+}
+
+@media screen and (max-width: 66em) {
+  .container {
+    flex-direction: column;
+  }
+
+  .header {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  form {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 38em) {
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  main {
+    padding: 0 4rem 4rem;
+  }
+
+  form,
+  input,
+  button {
+    width: 100%;
+  }
+
+  .form-section {
+    margin: 3rem -5rem;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  .margin-l {
+    margin-left: 0;
+  }
+
+  main p:last-child {
+    text-align: center;
+  }
 }
